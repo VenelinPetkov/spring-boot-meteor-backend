@@ -61,4 +61,11 @@ public class TaskController {
     return ResponseEntity.ok("Ok");
   }
 
+  @RequestMapping(method = RequestMethod.PUT, value = "/{id}/{checked}",
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<Object> checked(@PathVariable("id") String id, @PathVariable("checked") Boolean checked) {
+    taskService.checked(id, checked);
+    return ResponseEntity.ok("Ok");
+  }
+
 }
