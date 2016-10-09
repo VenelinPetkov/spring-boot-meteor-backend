@@ -54,4 +54,11 @@ public class TaskController {
     }
   }
 
+  @RequestMapping(method = RequestMethod.DELETE, value = "/{id}",
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResponseEntity<Object> remove(@PathVariable("id") String id) {
+    taskService.remove(id);
+    return ResponseEntity.ok("Ok");
+  }
+
 }
